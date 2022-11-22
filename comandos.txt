@@ -1,0 +1,13 @@
+pipenv install Flask
+pipenv install flask-sqlalchemy
+pipenv install flask-migrate
+pipenv install flask-script
+
+python run.py runserver
+python run.py db init
+python run.py db migrate
+python run.py db upgrade
+
+
+pipenv install Flask==1.1.2
+pipenv install flask-migrate==2.6.0

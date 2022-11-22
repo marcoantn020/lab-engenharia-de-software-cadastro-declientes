@@ -1,0 +1,27 @@
+version: '3.3'
+
+services:
+  db_arquitetura_de_software:
+    image: mysql:5.7
+    container_name: db_arquitetura_de_software
+    environment:
+      MYSQL_DATABASE: 'bancodb'
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+     - "3306:3306"
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d
+      - ./init/mysql:/var/lib/mysql
+  
+  # python_run:
+  #   container_name: python_run
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   command: 'flask run'
+  #   ports:
+  #    - "5000:5000"
+  #   depends_on:
+  #    - db_arquitetura_de_software
+  #   volumes:
+  #     - .:/var/www/app/
